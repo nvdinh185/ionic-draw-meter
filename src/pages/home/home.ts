@@ -17,7 +17,7 @@ export class HomePage {
   ngOnInit() {
     this.drawMeter(this.I("dlMeter"), 0.4, 0.3)
   }
-  
+
   I(id) { return document.getElementById(id); }
 
   drawMeter(c, amount, progress, colors?: {
@@ -25,9 +25,9 @@ export class HomePage {
     backgroundColor: string,
     progressColor: string
   }) {
-    
+
     var myColors = (colors) ? colors : this.graphColor;
-    
+
     var ctx = c.getContext("2d");
     var dp = window.devicePixelRatio || 1;
     var cw = c.clientWidth * dp, ch = c.clientHeight * dp;
@@ -52,6 +52,7 @@ export class HomePage {
     ctx.arc(c.width / 2, c.height - 58 * sizScale, c.height / 1.8 - ctx.lineWidth, -Math.PI * 1.1, Math.PI * 0.1);
     //thực hiện vẽ
     ctx.stroke();
+    //vẽ nền bên trong
     ctx.beginPath();
     ctx.strokeStyle = myColors.statusColor;
     ctx.lineWidth = 16 * sizScale;

@@ -89,6 +89,7 @@ var HomePage = /** @class */ (function () {
         ctx.arc(c.width / 2, c.height - 58 * sizScale, c.height / 1.8 - ctx.lineWidth, -Math.PI * 1.1, Math.PI * 0.1);
         //thực hiện vẽ
         ctx.stroke();
+        //vẽ nền bên trong
         ctx.beginPath();
         ctx.strokeStyle = myColors.statusColor;
         ctx.lineWidth = 16 * sizScale;
