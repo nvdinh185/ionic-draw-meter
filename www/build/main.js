@@ -60,7 +60,6 @@ var HomePage = /** @class */ (function () {
     }
     HomePage.prototype.ngOnInit = function () {
         this.drawMeter(this.I("dlMeter"), 0.4, 0.3);
-        console.log(window.devicePixelRatio || 1);
     };
     HomePage.prototype.I = function (id) { return document.getElementById(id); };
     HomePage.prototype.drawMeter = function (c, amount, progress, colors) {
@@ -68,6 +67,7 @@ var HomePage = /** @class */ (function () {
         var ctx = c.getContext("2d");
         var dp = window.devicePixelRatio || 1;
         var cw = c.clientWidth * dp, ch = c.clientHeight * dp;
+        console.log(window.devicePixelRatio || 1);
         console.log(c.clientWidth, c.clientHeight);
         console.log(c.width, c.height);
         var sizScale = ch * 0.0055;

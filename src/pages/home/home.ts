@@ -16,9 +16,8 @@ export class HomePage {
 
   ngOnInit() {
     this.drawMeter(this.I("dlMeter"), 0.4, 0.3)
-    console.log(window.devicePixelRatio || 1)
   }
-
+  
   I(id) { return document.getElementById(id); }
 
   drawMeter(c, amount, progress, colors?: {
@@ -26,12 +25,13 @@ export class HomePage {
     backgroundColor: string,
     progressColor: string
   }) {
-
+    
     var myColors = (colors) ? colors : this.graphColor;
-
+    
     var ctx = c.getContext("2d");
     var dp = window.devicePixelRatio || 1;
     var cw = c.clientWidth * dp, ch = c.clientHeight * dp;
+    console.log(window.devicePixelRatio || 1)
     console.log(c.clientWidth, c.clientHeight)
     console.log(c.width, c.height)
     var sizScale = ch * 0.0055;
