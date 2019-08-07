@@ -57,6 +57,7 @@ export class HomePage {
     ctx.lineWidth = 16 * sizScale;
     ctx.arc(c.width / 2, c.height - 58 * sizScale, c.height / 1.8 - ctx.lineWidth, -Math.PI * 1.1, amount * Math.PI * 1.2 - Math.PI * 1.1);
     ctx.stroke();
+    //vẽ thanh quá trình
     if (typeof progress !== "undefined") {
       ctx.fillStyle = myColors.progressColor;
       ctx.fillRect(c.width * 0.3, c.height - 16 * sizScale, c.width * 0.4 * progress, 4 * sizScale);
