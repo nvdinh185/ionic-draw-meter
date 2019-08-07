@@ -25681,6 +25681,8 @@ ion-navbar.toolbar {
 page-home .card-meter {
   border-radius: 2.5em;
   border: solid 0.1em #FFFFFF;
+  width: 20em;
+  height: 10em;
 }
 
 page-home .graphArea {
@@ -25700,8 +25702,17 @@ page-home .speedtest {
 page-home .graphName {
   position: absolute;
   top: 0.1em;
-  left: 90px;
+  left: 5em;
   width: 100%;
   font-size: 1.4em;
+  z-index: 9;
+}
+
+page-home .meterText {
+  position: absolute;
+  bottom: 2.55em;
+  left: 3em;
+  width: 100%;
+  font-size: 2.5em;
   z-index: 9;
 }

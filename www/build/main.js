@@ -55,11 +55,14 @@ var HomePage = /** @class */ (function () {
         this.graphColor = {
             statusColor: "#309030",
             backgroundColor: "#E0E0E0",
-            progressColor: "#EEEEEE"
+            progressColor: "#e3d6b3"
         };
     }
     HomePage.prototype.ngOnInit = function () {
-        this.drawMeter(this.I("dlMeter"), 0.4, 0.3);
+        //this.drawMeter(this.I("dlMeter"), 0.6, 0.4);
+        //this.I("dlText").textContent = 0.6 * 100 + "%";
+        //this.updateUI({ state: 1, contermet: '80', progress: 0.5 });
+        this.updateUI({ state: 1, contermet: '0', progress: 0.5 });
     };
     HomePage.prototype.I = function (id) { return document.getElementById(id); };
     HomePage.prototype.drawMeter = function (c, amount, progress, colors) {
@@ -67,9 +70,9 @@ var HomePage = /** @class */ (function () {
         var ctx = c.getContext("2d");
         var dp = window.devicePixelRatio || 1;
         var cw = c.clientWidth * dp, ch = c.clientHeight * dp;
-        console.log(window.devicePixelRatio || 1);
-        console.log(c.clientWidth, c.clientHeight);
-        console.log(c.width, c.height);
+        //console.log(window.devicePixelRatio || 1)
+        //console.log(c.clientWidth, c.clientHeight)
+        //console.log(c.width, c.height)
         var sizScale = ch * 0.0055;
         if (c.width == cw && c.height == ch) {
             ctx.clearRect(0, 0, cw, ch);
@@ -78,7 +81,7 @@ var HomePage = /** @class */ (function () {
             c.width = cw;
             c.height = ch;
         }
-        console.log(c.width, c.height);
+        //console.log(c.width, c.height)
         //bắt đầu đường vẽ
         ctx.beginPath();
         //đặt màu cho đường vẽ
@@ -101,9 +104,20 @@ var HomePage = /** @class */ (function () {
             ctx.fillRect(c.width * 0.3, c.height - 16 * sizScale, c.width * 0.4 * progress, 4 * sizScale);
         }
     };
+    HomePage.prototype.updateUI = function (data) {
+        this.I("dlText").textContent = ((data.state == 1 && data.contermet == '0') ? "..." : data.contermet) + "%";
+        this.drawMeter(this.I("dlMeter"), this.mbpsToAmount(Number(Number(data.contermet) * (data.state == 1 ? this.oscillate() : 1))), Number(data.progress));
+        //console.log(this.mbpsToAmount(Number(Number(data.contermet) * (data.state == 1 ? this.oscillate() : 1))))
+    };
+    HomePage.prototype.mbpsToAmount = function (s) {
+        return 1 - (1 / (Math.pow(1.3, Math.sqrt(s))));
+    };
+    HomePage.prototype.oscillate = function () {
+        return 1 + 0.02 * Math.sin(Date.now() / 100);
+    };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-Meter\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-card class="card-meter">\n    <div class="graphArea speedtest">\n      <div class="graphName">Hiệu suất</div>\n      <canvas id="dlMeter" style="border:1px solid #c3c3c3;"></canvas>\n    </div>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-Meter\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-card class="card-meter">\n    <div class="graphArea speedtest">\n      <div class="graphName">Hiệu suất</div>\n      <canvas id="dlMeter" style="border:0.1em solid #c3c3c3;"></canvas>\n      <div class="meterText" id="dlText"></div>\n    </div>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], HomePage);
@@ -210,7 +224,7 @@ var MyApp = /** @class */ (function () {
         this.rootPage = __WEBPACK_IMPORTED_MODULE_1__pages_home_home__["a" /* HomePage */];
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-Meter\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-Meter\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], MyApp);
