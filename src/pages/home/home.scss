@@ -1,0 +1,28 @@
+page-home {
+    .card-meter{
+        border-radius: 2.5em;
+		border: solid 0.1em #FFFFFF;
+    }
+
+    .graphArea{
+        height:14em;
+        position:relative;
+        box-sizing:border-box;
+    }
+
+    .speedtest {
+        background-image: url("/assets/imgs/gradient.png");
+		background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    
+    .graphName{
+        position:absolute;
+        top:0.1em;
+        left: 90px;
+        width:100%;
+        font-size:1.4em;
+        z-index:9;
+    }
+}
