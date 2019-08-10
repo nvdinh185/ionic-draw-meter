@@ -17,8 +17,8 @@ export class HomePage {
   ngOnInit() {
     //this.drawMeter(this.I("dlMeter"), 0.6, 0.4);
     //this.I("dlText").textContent = 0.6 * 100 + "%";
-    //this.updateUI({ state: 1, contermet: '80', progress: 0.5 });
-    this.updateUI({ state: 1, contermet: '0', progress: 0.5 });
+    this.updateUI({ state: 1, contermet: '80', progress: 0.5 });
+    //this.updateUI({ state: 1, contermet: '0', progress: 0.5 });
   }
 
   I(id) { return document.getElementById(id); }
@@ -29,12 +29,12 @@ export class HomePage {
     progressColor: string
   }) {
 
-    var myColors = (colors) ? colors : this.graphColor;
+    var myColors = colors ? colors : this.graphColor;
 
     var ctx = c.getContext("2d");
     var dp = window.devicePixelRatio || 1;
     var cw = c.clientWidth * dp, ch = c.clientHeight * dp;
-    //console.log(window.devicePixelRatio || 1)
+    //console.log(window.devicePixelRatio)
     //console.log(c.clientWidth, c.clientHeight)
     //console.log(c.width, c.height)
     var sizScale = ch * 0.0055;

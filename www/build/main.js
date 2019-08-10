@@ -61,16 +61,16 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.ngOnInit = function () {
         //this.drawMeter(this.I("dlMeter"), 0.6, 0.4);
         //this.I("dlText").textContent = 0.6 * 100 + "%";
-        //this.updateUI({ state: 1, contermet: '80', progress: 0.5 });
-        this.updateUI({ state: 1, contermet: '0', progress: 0.5 });
+        this.updateUI({ state: 1, contermet: '80', progress: 0.5 });
+        //this.updateUI({ state: 1, contermet: '0', progress: 0.5 });
     };
     HomePage.prototype.I = function (id) { return document.getElementById(id); };
     HomePage.prototype.drawMeter = function (c, amount, progress, colors) {
-        var myColors = (colors) ? colors : this.graphColor;
+        var myColors = colors ? colors : this.graphColor;
         var ctx = c.getContext("2d");
         var dp = window.devicePixelRatio || 1;
         var cw = c.clientWidth * dp, ch = c.clientHeight * dp;
-        //console.log(window.devicePixelRatio || 1)
+        //console.log(window.devicePixelRatio)
         //console.log(c.clientWidth, c.clientHeight)
         //console.log(c.width, c.height)
         var sizScale = ch * 0.0055;
@@ -117,7 +117,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Home</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-card class="card-meter">\n    <div class="graphArea speedtest">\n      <div class="graphName">Hiệu suất</div>\n      <canvas id="dlMeter" style="border:0.1em solid #c3c3c3;"></canvas>\n      <div class="meterText" id="dlText"></div>\n    </div>\n  </ion-card>\n</ion-content>'/*ion-inline-end:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"D:\MYDATA\LapTrinhDiDong\IONIC\ionic-draw-meter\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>Home</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-card class="card-meter">\n\n    <div class="graphArea speedtest">\n\n      <div class="graphName">Hiệu suất</div>\n\n      <canvas id="dlMeter" style="border:0.1em solid #c3c3c3;"></canvas>\n\n      <div class="meterText" id="dlText"></div>\n\n    </div>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"D:\MYDATA\LapTrinhDiDong\IONIC\ionic-draw-meter\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], HomePage);
@@ -224,7 +224,7 @@ var MyApp = /** @class */ (function () {
         this.rootPage = __WEBPACK_IMPORTED_MODULE_1__pages_home_home__["a" /* HomePage */];
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\DINHNV\MyData\LapTrinhDiDong\NODE_Baitap\node-web.bsc-kpi\draw-meter\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\MYDATA\LapTrinhDiDong\IONIC\ionic-draw-meter\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"D:\MYDATA\LapTrinhDiDong\IONIC\ionic-draw-meter\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [])
     ], MyApp);
